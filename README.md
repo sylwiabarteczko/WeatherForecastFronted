@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# 🚀 Ready Project Setup Guide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a full-stack application that fetches real-time and forecast weather data from an external Weather API and exposes REST endpoints for a frontend application.
 
-## Available Scripts
+Built with:
+- **Backend**: https://github.com/sylwiabarteczko/WeatherForecast
+- **Frontend**: React + TypeScript + Vite + CSS + JavaScript + HTML
 
-In the project directory, you can run:
+## 1. Clone the Repository:
 
-### `npm start`
+Open your terminal and clone the project:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+git clone https://github.com/sylwiabarteczko/WeatherForecastFronted
+```
+Then open the folder in WebStorm.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 2. 🔧 Backend Setup (Required Before Starting Frontend)
 
-### `npm test`
+The frontend requires the backend running on:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+http://localhost:8080
+```
+You have two options:
 
-### `npm run build`
+## Option A – Run Backend Locally (Spring Boot)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Go to the backend project directory and run:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+mvn spring-boot:run
+```
+Backend will be available at:
+```bash
+http://localhost:8080
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Option B – Run Backend with Docker (Recommended)
 
-### `npm run eject`
+1. Make sure Docker is installed and running.
+2. Go to the backend project folder (where docker-compose.yml is located).
+3. Run:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+docker compose up -d
+```
+This will start:
+- PostgreSQL
+- Backend application (if configured in docker-compose)
+If the backend service is included in Docker, you do NOT need to run mvn spring-boot:run.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 3. 🌐 Frontend Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Install Dependencies:
+- Inside the frontend project folder:
+```bash
+npm install
+```
+- Start the Frontend
+```bash
+npm run dev
+```
+- Open in Browser
+  👉 http://localhost:3000
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 4. Full flow test
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Make sure backend is running (locally or in Docker)
+- Start the frontend
+- Enter a city name
+- The app will fetch real-time and forecast data via REST API from the backend
